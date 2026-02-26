@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://d4v1x6ypvi7i"]
+
+[ext_resource type="Script" uid="uid://cshyfqvs48kvo" path="res://Player/player.gd" id="1_l8h54"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_l8h54"]
+load_path = "res://.godot/imported/Octopussy.png-9b2a6cc2c00f94be7c566e8d0923ef7a.ctex"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l8h54"]
+radius = 8.0
+
+[node name="Player" type="CharacterBody2D" unique_id=1729872744]
+script = ExtResource("1_l8h54")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=468973676]
+texture_filter = 1
+texture = SubResource("CompressedTexture2D_l8h54")
+hframes = 4
+vframes = 2
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1281560725]
+zoom = Vector2(4, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=166892029]
+shape = SubResource("CapsuleShape2D_l8h54")
