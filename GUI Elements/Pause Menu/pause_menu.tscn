@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://dywpdk2knvp62"]
+
+[ext_resource type="Script" uid="uid://bt7ye0ntgkd3b" path="res://GUI Elements/Pause Menu/pause_menu.gd" id="1_4twpg"]
+[ext_resource type="Shader" uid="uid://h3jswdcr08gy" path="res://GUI Elements/Pause Menu/pause_menu.gdshader" id="1_e44e2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4twpg"]
+shader = ExtResource("1_e44e2")
+shader_parameter/lod = 0.0
+
+[sub_resource type="Animation" id="Animation_1tajg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6w172"]
+resource_name = "blur"
+length = 0.46666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.800000038]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s3ddm"]
+_data = {
+&"RESET": SubResource("Animation_1tajg"),
+&"blur": SubResource("Animation_6w172")
+}
+
+[node name="Pause Menu" type="Control" unique_id=539179954]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4twpg")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=798262181]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(0.99215686, 0.99215686, 0.99215686, 0)
+material = SubResource("ShaderMaterial_4twpg")
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.99700004
+anchor_bottom = 1.0
+
+[node name="PanelContainer" type="PanelContainer" parent="ColorRect" unique_id=1191350790]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.514
+offset_left = -452.12006
+offset_top = -323.0
+offset_right = 436.87994
+offset_bottom = 337.88
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/PanelContainer" unique_id=2068826393]
+layout_mode = 2
+alignment = 1
+
+[node name="Resume" type="Button" parent="ColorRect/PanelContainer/VBoxContainer" unique_id=130339505]
+layout_mode = 2
+text = "Resume"
+
+[node name="Settings" type="Button" parent="ColorRect/PanelContainer/VBoxContainer" unique_id=466493110]
+layout_mode = 2
+text = "Settings
+"
+
+[node name="Main menu" type="Button" parent="ColorRect/PanelContainer/VBoxContainer" unique_id=889921367]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1520093766]
+libraries/ = SubResource("AnimationLibrary_s3ddm")
+
+[connection signal="pressed" from="ColorRect/PanelContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="ColorRect/PanelContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="ColorRect/PanelContainer/VBoxContainer/Main menu" to="." method="_on_main_menu_pressed"]

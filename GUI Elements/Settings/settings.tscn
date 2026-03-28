@@ -4,7 +4,7 @@
 
 [sub_resource type="Theme" id="Theme_j44a0"]
 
-[node name="Settings" type="Control" unique_id=148104988]
+[node name="Pause menu" type="Control" unique_id=148104988]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,42 +13,3 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_j44a0")
 script = ExtResource("1_j44a0")
-
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1924074269]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1295133110]
-layout_mode = 2
-
-[node name="Volume" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1119856340]
-layout_mode = 2
-text = "Volume"
-
-[node name="Volume slider" type="HSlider" parent="MarginContainer/VBoxContainer" unique_id=609286081]
-layout_mode = 2
-
-[node name="Mute" type="Label" parent="MarginContainer/VBoxContainer" unique_id=2007799256]
-layout_mode = 2
-text = "Mute"
-
-[node name="Mute box" type="CheckBox" parent="MarginContainer/VBoxContainer" unique_id=894784473]
-layout_mode = 2
-
-[node name="Resolutions" type="OptionButton" parent="MarginContainer/VBoxContainer" unique_id=1812344933]
-layout_mode = 2
-selected = 0
-item_count = 3
-popup/item_0/text = "1920x1080"
-popup/item_0/id = 0
-popup/item_1/text = "1600x900"
-popup/item_1/id = 1
-popup/item_2/text = "1280x720"
-popup/item_2/id = 2
-
-[connection signal="value_changed" from="MarginContainer/VBoxContainer/Volume slider" to="." method="_on_h_slider_value_changed"]
-[connection signal="toggled" from="MarginContainer/VBoxContainer/Mute box" to="." method="_on_mute_box_toggled"]
