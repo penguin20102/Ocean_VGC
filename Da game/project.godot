@@ -21,7 +21,8 @@ buses/default_bus_layout=""
 
 [autoload]
 
-RoomChangeGlobal="*uid://dbysmquwtbnhu"
+PlayerStats="*uid://dbysmquwtbnhu"
+Global="*uid://bjtj2rcg3be1v"
 
 [display]
 
@@ -31,6 +32,10 @@ window/size/borderless=true
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
 window/vsync/vsync_mode=0
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/aseprite_spritesheet_importer/plugin.cfg")
 
 [input]
 
@@ -80,7 +85,7 @@ esc={
 
 3d/physics_engine="Jolt Physics"
 3d/default_gravity=200.0
-2d/default_gravity=300.0
+2d/default_gravity=150.0
 
 [rendering]
 
