@@ -5,6 +5,9 @@ extends CharacterBody2D
 @export var water_jump_height = 1000
 @export var movement_speed = 100
 @export var terminal_velocity = 1000
+
+@onready var stats: PlayerStats = preload("res://Resources/PlayerStats.tres")
+
 var max_double = 0
 
 var water_level = 1
