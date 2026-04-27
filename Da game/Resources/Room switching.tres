@@ -1,0 +1,9 @@
+[gd_resource type="Resource" format=3 uid="uid://5o1bssfomvk2"]
+
+[sub_resource type="GDScript" id="GDScript_rn2vi"]
+script/source = "class_name RoomSwitch
+extends Resource
+"
+
+[resource]
+script = SubResource("GDScript_rn2vi")
