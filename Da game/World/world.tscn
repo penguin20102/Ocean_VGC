@@ -29,4 +29,5 @@ shape = SubResource("WorldBoundaryShape2D_j8job")
 [node name="Pause Menu" parent="CanvasLayer" unique_id=539179954 instance=ExtResource("3_j8job")]
 
 [node name="Door" parent="." unique_id=417997255 instance=ExtResource("4_3f78f")]
+position = Vector2(156, 19)
 target_scene_path = "uid://bpv27xyxp7cpy"

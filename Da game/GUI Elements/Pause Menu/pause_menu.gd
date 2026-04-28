@@ -28,5 +28,5 @@ func _on_main_menu_pressed():
 	pass # Replace with function body.
 
 
-func _process(delta):
+func _process(_delta):
 	testEsc()
