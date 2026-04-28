@@ -37,6 +37,10 @@ window/vsync/vsync_mode=0
 
 enabled=PackedStringArray("res://addons/aseprite_spritesheet_importer/plugin.cfg")
 
+[global_group]
+
+Player=""
+
 [input]
 
 Left={
