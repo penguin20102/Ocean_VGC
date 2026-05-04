@@ -25,8 +25,7 @@ func _on_settings_pressed():
 	load("res://GUI Elements/Settings/settings.tscn")
 
 func _on_main_menu_pressed():
-	pass # Replace with function body.
-
+	Global.goto_scene("res://GUI Elements/Main Menu/main_menu.tscn")
 
 func _process(_delta):
 	testEsc()
