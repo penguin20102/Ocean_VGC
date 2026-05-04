@@ -89,18 +89,15 @@ anchor_bottom = 1.0
 
 [node name="PanelContainer" type="PanelContainer" parent="ColorRect" unique_id=1191350790]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.514
-offset_left = -452.12006
-offset_top = -323.0
-offset_right = 436.87994
-offset_bottom = 337.88
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/PanelContainer" unique_id=2068826393]
 layout_mode = 2
+size_flags_horizontal = 4
 alignment = 1
 
 [node name="Resume" type="Button" parent="ColorRect/PanelContainer/VBoxContainer" unique_id=130339505]

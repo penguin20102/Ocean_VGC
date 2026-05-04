@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dvxd7g6mf70si"]
+
+[ext_resource type="Script" uid="uid://cn7mjgx8eacyw" path="res://World/room_change.gd" id="1_xb3ck"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3wo5c"]
+size = Vector2(20, 73)
+
+[node name="Door" type="Area2D" unique_id=417997255]
+script = ExtResource("1_xb3ck")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2059401039]
+position = Vector2(0, -26.5)
+shape = SubResource("RectangleShape2D_3wo5c")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

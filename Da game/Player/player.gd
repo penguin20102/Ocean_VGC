@@ -1,40 +1,53 @@
 extends CharacterBody2D
 
-const FALL_GRAVITY = 2000
-const SPEED = 300.0
-const JUMP_VELOCITY = -600.0
-@onready var sprite_2d = $Sprite2D
+# Variables
+@export var jump_height = 5000
+@export var water_jump_height = 1000
+@export var movement_speed = 100
+@export var terminal_velocity = 1000
 
-func _physics_process(delta: float) -> void:
-	#animations
-	
+@onready var stats: PlayerStats = preload("res://Resources/PlayerStats.tres")
 
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-	
-	
-	# Handle jump.
-	
-	if Input.is_action_just_released("jump") and velocity.y < 0:
-		velocity.y = JUMP_VELOCITY / 8
-	
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+var max_double = 0
 
-	#main menu
-		
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("left", "right")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, 20)
+var water_level = 1
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+
+func _physics_process(delta):
+	movement()
+	water_jump()
 	move_and_slide()
+	
+	
+		# This is gravity
+	if not is_on_floor():
+		velocity.y += gravity * delta
+		
+		velocity.y = min(velocity.y, terminal_velocity)
 
-	if velocity.x < 0:
-		sprite_2d.flip_h = true 
-	if velocity.x > 0:
-		sprite_2d.flip_h = false 
+func sucking_water():
+	pass
+
+func water_jump():
+	pass
+	if !is_on_floor() and water_level >= 0 and Input.is_action_just_pressed("Jump"):
+		velocity.y = 0
+		velocity.y += water_jump_height + velocity.y
+		water_level -= 25
+
+
+# Movement script
+func movement():
+	# Moveing left and right
+	var input_direction = Input.get_action_strength("Right") - Input.get_action_strength("Left")
+	velocity.x = input_direction * movement_speed
+	
+		
+	# Jumping normaly
+	if is_on_floor() and Input.is_action_just_pressed("Jump"):
+		velocity.y += jump_height
+	
+	# Making jumping ajustable
+	if Input.is_action_just_released("Jump"):
+		velocity.y *= 0.5
