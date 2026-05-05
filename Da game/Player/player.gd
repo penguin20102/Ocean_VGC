@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # Variables
-@export var jump_height = 5000
+@export var jump_height = -250
 @export var water_jump_height = 1000
 @export var movement_speed = 100
 @export var terminal_velocity = 1000
@@ -16,7 +16,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _physics_process(delta):
 	movement()
-	water_jump()
+	#water_jump()
 	move_and_slide()
 	
 	
