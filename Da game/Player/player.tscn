@@ -7,7 +7,7 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l8h54"]
 radius = 8.0
 
-[node name="Player" type="CharacterBody2D" unique_id=1729872744]
+[node name="Player" type="CharacterBody2D" unique_id=1729872744 groups=["Player"]]
 scale = Vector2(2, 2)
 collision_mask = 15
 script = ExtResource("1_l8h54")
@@ -19,7 +19,7 @@ hframes = 4
 vframes = 2
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1281560725]
-zoom = Vector2(4, 4)
+zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=166892029]
