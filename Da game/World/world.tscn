@@ -8,7 +8,7 @@
 
 [node name="World" type="Node2D" unique_id=1669230241]
 
-[node name="Player" parent="." unique_id=1729872744 groups=["Player"] instance=ExtResource("1_62w18")]
+[node name="Player" parent="." unique_id=1729872744 instance=ExtResource("1_62w18")]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1585314930]
 z_index = -1
