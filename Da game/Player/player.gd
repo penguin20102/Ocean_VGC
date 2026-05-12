@@ -13,15 +13,19 @@ var max_double = 0
 var water_level = 1
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+var health = PlayerStats.health
 
 func _physics_process(delta):
 	movement()
 	#water_jump()
-	move_and_slide()
+	
+	print(health)
+	
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
 		velocity.y = min(velocity.y, terminal_velocity)
+	move_and_slide()
 
 func sucking_water():
 	pass
@@ -40,6 +44,12 @@ func movement():
 	var input_direction = Input.get_action_strength("Right") - Input.get_action_strength("Left")
 	velocity.x = input_direction * movement_speed
 	
+	if input_direction != 0:
+		if input_direction >= 0:
+			scale.x = 2
+			
+		if input_direction <= 0:
+			scale.x = -2
 		
 	# Jumping normaly
 	if is_on_floor() and Input.is_action_just_pressed("Jump"):
@@ -48,5 +58,6 @@ func movement():
 	# Making jumping ajustable
 	if Input.is_action_just_released("Jump"):
 		velocity.y *= 0.5
+	
 	
 	
