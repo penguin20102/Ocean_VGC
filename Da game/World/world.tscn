@@ -6,6 +6,9 @@
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_j8job"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j8job"]
+size = Vector2(46, 202)
+
 [node name="World" type="Node2D" unique_id=1669230241]
 
 [node name="Player" parent="." unique_id=1729872744 groups=["Player"] instance=ExtResource("1_62w18")]
@@ -26,3 +29,18 @@ shape = SubResource("WorldBoundaryShape2D_j8job")
 [node name="Door" parent="." unique_id=417997255 instance=ExtResource("4_3f78f")]
 position = Vector2(156, 19)
 target_scene_path = "uid://bpv27xyxp7cpy"
+
+[node name="Wall" type="StaticBody2D" parent="." unique_id=1539510550]
+position = Vector2(-246, -134)
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall" unique_id=1243403752]
+position = Vector2(13, 91)
+shape = SubResource("RectangleShape2D_j8job")
+
+[node name="ColorRect" type="ColorRect" parent="Wall" unique_id=114857980]
+offset_left = -16.0
+offset_top = -13.0
+offset_right = 35.0
+offset_bottom = 194.0
+color = Color(0, 0, 0, 1)

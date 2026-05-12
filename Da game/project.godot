@@ -13,7 +13,9 @@ config_version=5
 config/name="VGC project (OCEAN)"
 run/main_scene="uid://c7qjhao2ik66y"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-boot_splash/bg_color=Color(0.67136574, 0.19393915, 0.32903016, 1)
+boot_splash/use_filter=false
+boot_splash/image="uid://cldccic7k2scv"
+config/icon="uid://bxbsspbxxn481"
 
 [audio]
 
@@ -88,8 +90,8 @@ esc={
 [physics]
 
 3d/physics_engine="Jolt Physics"
-3d/default_gravity=200.0
-2d/default_gravity=150.0
+3d/default_gravity=197.61
+2d/default_gravity=500.0
 
 [rendering]
 
