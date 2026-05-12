@@ -15,10 +15,13 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
 func _physics_process(delta):
-	movement(delta)
+	movement()
 	#water_jump()
 	move_and_slide()
-	gravity_force()
+	if not is_on_floor():
+		velocity.y += gravity * delta
+
+		velocity.y = min(velocity.y, terminal_velocity)
 
 func sucking_water():
 	pass
@@ -32,7 +35,7 @@ func water_jump():
 
 
 # Movement script
-func movement(delta):
+func movement():
 	# Moveing left and right
 	var input_direction = Input.get_action_strength("Right") - Input.get_action_strength("Left")
 	velocity.x = input_direction * movement_speed
@@ -42,18 +45,8 @@ func movement(delta):
 	if is_on_floor() and Input.is_action_just_pressed("Jump"):
 		velocity.y += jump_height
 	
-	if double_jump == true && !is_on_floor() && Input.is_action_just_pressed("Jump"):
-		velocity.y += jump_height
-	
 	# Making jumping ajustable
 	if Input.is_action_just_released("Jump"):
-		velocity.y = gravity
-	else:
-		gravity_force()
+		velocity.y *= 0.5
 	
 	
-func gravity_force():
-	# This is gravity
-	if not is_on_floor():
-		velocity.y += gravity
-		
