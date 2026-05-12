@@ -6,7 +6,7 @@ extends CharacterBody2D
 @export var movement_speed = 100
 @export var terminal_velocity = 1000
 
-@onready var stats: PlayerStats = preload("res://Resources/PlayerStats.tres")
+var double_jump = PlayerStats.double_jump
 
 var max_double = 0
 
@@ -15,16 +15,10 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
 func _physics_process(delta):
-	movement()
+	movement(delta)
 	#water_jump()
 	move_and_slide()
-	
-	
-		# This is gravity
-	if not is_on_floor():
-		velocity.y += gravity * delta
-		
-		velocity.y = min(velocity.y, terminal_velocity)
+	gravity_force()
 
 func sucking_water():
 	pass
@@ -38,7 +32,7 @@ func water_jump():
 
 
 # Movement script
-func movement():
+func movement(delta):
 	# Moveing left and right
 	var input_direction = Input.get_action_strength("Right") - Input.get_action_strength("Left")
 	velocity.x = input_direction * movement_speed
@@ -48,6 +42,18 @@ func movement():
 	if is_on_floor() and Input.is_action_just_pressed("Jump"):
 		velocity.y += jump_height
 	
+	if double_jump == true && !is_on_floor() && Input.is_action_just_pressed("Jump"):
+		velocity.y += jump_height
+	
 	# Making jumping ajustable
 	if Input.is_action_just_released("Jump"):
-		velocity.y *= 0.5
+		velocity.y = gravity
+	else:
+		gravity_force()
+	
+	
+func gravity_force():
+	# This is gravity
+	if not is_on_floor():
+		velocity.y += gravity
+		
