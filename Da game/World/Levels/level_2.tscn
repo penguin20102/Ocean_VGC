@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://di60ybbx6kili" path="res://World/Levels/Dark sand.png" id="1_8hi21"]
 [ext_resource type="Texture2D" uid="uid://qvfbx2bbvxhr" path="res://World/World art/MANCAVEEEEl.png" id="1_n4c57"]
+[ext_resource type="Texture2D" uid="uid://bjfhak7ymh38u" path="res://World/BcoralD1.png" id="2_7e7sa"]
 [ext_resource type="PackedScene" uid="uid://d4v1x6ypvi7i" path="res://Player/player.tscn" id="2_n4c57"]
 [ext_resource type="Texture2D" uid="uid://bi0pofyhqvsll" path="res://World/World art/Environment/coralD1.png" id="4_5q066"]
 [ext_resource type="Texture2D" uid="uid://o3hjdd88jad7" path="res://World/World art/Environment/coralD2.png" id="5_n4e12"]
@@ -157,11 +158,23 @@ sources/1 = SubResource("TileSetAtlasSource_t2r3o")
 
 [node name="Level 2" type="Node2D" unique_id=475351472]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1460293513]
+[node name="Background" type="Sprite2D" parent="." unique_id=1460293513]
 texture_filter = 1
 position = Vector2(794.00006, 689.5)
 scale = Vector2(16.373625, 9.36607)
 texture = ExtResource("1_n4c57")
+
+[node name="Home" type="Sprite2D" parent="." unique_id=1243225813]
+texture_filter = 1
+position = Vector2(1141.095, 835.85)
+scale = Vector2(4.12, 4.12)
+texture = ExtResource("2_7e7sa")
+
+[node name="Home2" type="Sprite2D" parent="." unique_id=1992659158]
+texture_filter = 1
+position = Vector2(1014.00006, 887.00006)
+scale = Vector2(2.3933332, 2.2484062)
+texture = ExtResource("2_7e7sa")
 
 [node name="Coral" type="TileMapLayer" parent="." unique_id=1825307842]
 tile_map_data = PackedByteArray("AADt/0EAAAAAAAAAAADu/0EAAAABAAAAAAD+/0EAAAAAAAAAAAD//0EAAAABAAAAAAD2/0AAAwAAAAAAAAD2/0EAAwAAAAEAAAD3/0AAAwABAAAAAAD3/0EAAwABAAEAAAAEAEAAAwAAAAAAAAAEAEEAAwAAAAEAAAAFAEAAAwABAAAAAAAFAEEAAwABAAEAAAAlAEIAAgAAAAAAAGAnADoAAwABAAAAAAAnADsAAwABAAEAAAAoADoAAwABAAAAAAAoADsAAwABAAEAAAAmADoAAwAAAAAAAAAmADsAAwAAAAEAAAAQADsAAQAAAAAAAAARADsAAQABAAAAAAAcADsAAQAAAAAAAAAdADsAAQABAAAAAAAsADkAAQAAAAAAAAAtADkAAQABAAAAAABhADkAAQAAAAAAAABiADkAAQABAAAAAABwAD8AAQAAAAAAAABxAD8AAQABAAAAAAB5AEEAAQAAAAAAAAB6AEEAAQABAAAAAABnADsAAAAAAAAAABBmADsAAAABAAAAABB1AEEAAgAAAAAAABB0AEEAAgABAAAAABCCAEEABAAAAAAAAFAXADoAAwAAAAAAAAAXADsAAwAAAAEAAAAYADoAAwABAAAAAAAYADsAAwABAAEAAAA=")

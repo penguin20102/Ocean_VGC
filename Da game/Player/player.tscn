@@ -4,9 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://dpv5snkoat3kf" path="res://Player/Player.png" id="2_4ntmi"]
 [ext_resource type="PackedScene" uid="uid://dywpdk2knvp62" path="res://GUI Elements/Pause Menu/pause_menu.tscn" id="3_btcbx"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l8h54"]
-radius = 8.0
-
 [node name="Player" type="CharacterBody2D" unique_id=1729872744 groups=["Player"]]
 scale = Vector2(2, 2)
 collision_mask = 15
@@ -22,8 +19,8 @@ vframes = 2
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=166892029]
-shape = SubResource("CapsuleShape2D_l8h54")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=249077157]
+polygon = PackedVector2Array(0, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=707230717]
 
