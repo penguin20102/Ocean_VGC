@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dyy3jwksc83yw"]
+
+[ext_resource type="Script" uid="uid://cshyfqvs48kvo" path="res://Player/player.gd" id="1_4jr1b"]
+[ext_resource type="Texture2D" uid="uid://dpv5snkoat3kf" path="res://Player/Player.png" id="2_efl3s"]
+[ext_resource type="PackedScene" uid="uid://dywpdk2knvp62" path="res://GUI Elements/Pause Menu/pause_menu.tscn" id="3_efl3s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_waqr2"]
+size = Vector2(20, 32)
+
+[node name="player_" type="CharacterBody2D" unique_id=1479122654 groups=["Player"]]
+collision_mask = 15
+script = ExtResource("1_4jr1b")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2137323596]
+texture_filter = 1
+texture = ExtResource("2_efl3s")
+hframes = 4
+vframes = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=108863571]
+
+[node name="Pause Menu" parent="CanvasLayer" unique_id=539179954 instance=ExtResource("3_efl3s")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=818677673]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1855503649]
+shape = SubResource("RectangleShape2D_waqr2")

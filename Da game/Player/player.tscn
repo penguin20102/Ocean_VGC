@@ -3,9 +3,10 @@
 [ext_resource type="Script" uid="uid://cshyfqvs48kvo" path="res://Player/player.gd" id="1_l8h54"]
 [ext_resource type="Texture2D" uid="uid://dpv5snkoat3kf" path="res://Player/Player.png" id="2_4ntmi"]
 [ext_resource type="PackedScene" uid="uid://dywpdk2knvp62" path="res://GUI Elements/Pause Menu/pause_menu.tscn" id="3_btcbx"]
+[ext_resource type="Shape2D" uid="uid://b8pyugoguiriy" path="res://Player/collision_prototype.tres" id="3_gwnis"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l8h54"]
-radius = 8.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_btcbx"]
+size = Vector2(28, 26)
 
 [node name="Player" type="CharacterBody2D" unique_id=1729872744 groups=["Player"]]
 scale = Vector2(2, 2)
@@ -22,9 +23,16 @@ vframes = 2
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=166892029]
-shape = SubResource("CapsuleShape2D_l8h54")
+<<<<<<< HEAD
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=439540080]
+shape = ExtResource("3_gwnis")
 
+=======
+>>>>>>> 39ca983f6b7316a5e433079b4b9eae6152335c8e
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=707230717]
 
 [node name="Pause Menu" parent="CanvasLayer" unique_id=539179954 instance=ExtResource("3_btcbx")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=454548971]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_btcbx")
