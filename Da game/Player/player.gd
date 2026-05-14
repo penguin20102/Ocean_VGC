@@ -6,6 +6,9 @@ extends CharacterBody2D
 @export var movement_speed = 100
 @export var terminal_velocity = 1000
 
+@onready var water_timer: Timer = $Timer
+
+
 var double_jump = PlayerStats.double_jump
 
 var max_double = 0
@@ -15,10 +18,12 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var health = PlayerStats.health
 
+
+
 func _physics_process(delta):
 	movement()
 	#water_jump()
-	water_shoot(delta)
+	water_shoot()
 	
 	
 	if not is_on_floor():
@@ -37,18 +42,13 @@ func water_jump():
 		velocity.y += water_jump_height + velocity.y
 		water_level -= 25
 
-func water_shoot(delta):
+func water_shoot():
 	
-	var total = 0
-	
-	if Input.is_action_pressed("Water_shoot"):
-		total += delta
-	if Input.is_action_just_released("Water_shoot"):
-		pass
-	if total > 2:
-		print("Held for 2 seconds")
+	if Input.is_action_just_pressed("Water_shoot"):
+		water_timer.start()
 		
-	
+		
+
 	
 # Movement script
 func movement():
@@ -66,3 +66,7 @@ func movement():
 	
 	
 	
+
+
+func _on_timer_timeout() -> void:
+	print("shot player")
