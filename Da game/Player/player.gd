@@ -18,8 +18,8 @@ var health = PlayerStats.health
 func _physics_process(delta):
 	movement()
 	#water_jump()
+	water_shoot(delta)
 	
-	print(health)
 	
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -37,7 +37,19 @@ func water_jump():
 		velocity.y += water_jump_height + velocity.y
 		water_level -= 25
 
-
+func water_shoot(delta):
+	
+	var total = 0
+	
+	if Input.is_action_pressed("Water_shoot"):
+		total += delta
+	if Input.is_action_just_released("Water_shoot"):
+		pass
+	if total > 2:
+		print("Held for 2 seconds")
+		
+	
+	
 # Movement script
 func movement():
 	# Moveing left and right
