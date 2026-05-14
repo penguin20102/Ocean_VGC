@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ct76jq6ge8ygf" path="res://World/World art/Environment/coralminiD2.png" id="8_qh8yu"]
 [ext_resource type="Texture2D" uid="uid://di60ybbx6kili" path="res://World/Levels/Dark sand.png" id="9_38c86"]
 [ext_resource type="PackedScene" uid="uid://dvxd7g6mf70si" path="res://World/door.tscn" id="10_3cspb"]
-[ext_resource type="PackedScene" uid="uid://d4v1x6ypvi7i" path="res://Player/player.tscn" id="10_vu87g"]
+[ext_resource type="PackedScene" uid="uid://dyy3jwksc83yw" path="res://Player/player_.tscn" id="10_vu87g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qkv6y"]
 texture = ExtResource("2_nusrf")

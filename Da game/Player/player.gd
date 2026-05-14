@@ -44,13 +44,6 @@ func movement():
 	var input_direction = Input.get_action_strength("Right") - Input.get_action_strength("Left")
 	velocity.x = input_direction * movement_speed
 	
-	if input_direction != 0:
-		if input_direction >= 0:
-			scale.x = 2
-			
-		if input_direction <= 0:
-			scale.x = -2
-		
 	# Jumping normaly
 	if is_on_floor() and Input.is_action_just_pressed("Jump"):
 		velocity.y += jump_height

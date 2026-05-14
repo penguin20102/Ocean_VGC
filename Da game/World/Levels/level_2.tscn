@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://di60ybbx6kili" path="res://World/Levels/Dark sand.png" id="1_8hi21"]
 [ext_resource type="Texture2D" uid="uid://qvfbx2bbvxhr" path="res://World/World art/MANCAVEEEEl.png" id="1_n4c57"]
 [ext_resource type="Texture2D" uid="uid://bjfhak7ymh38u" path="res://World/BcoralD1.png" id="2_7e7sa"]
-[ext_resource type="PackedScene" uid="uid://d4v1x6ypvi7i" path="res://Player/player.tscn" id="2_n4c57"]
+[ext_resource type="PackedScene" uid="uid://dyy3jwksc83yw" path="res://Player/player_.tscn" id="2_n4c57"]
 [ext_resource type="Texture2D" uid="uid://bi0pofyhqvsll" path="res://World/World art/Environment/coralD1.png" id="4_5q066"]
 [ext_resource type="Texture2D" uid="uid://o3hjdd88jad7" path="res://World/World art/Environment/coralD2.png" id="5_n4e12"]
 [ext_resource type="Texture2D" uid="uid://bd4wc53gm4fui" path="res://World/World art/Environment/coralD3.png" id="6_7e7sa"]
