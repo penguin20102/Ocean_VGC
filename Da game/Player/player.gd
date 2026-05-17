@@ -5,8 +5,9 @@ extends CharacterBody2D
 @export var water_jump_height = 1000
 @export var movement_speed = 100
 @export var terminal_velocity = 1000
+@export var shoot_height = -500
 
-@onready var water_timer: Timer = $Timer
+@onready var water_timer: Timer = $water_shoot
 
 
 var double_jump = PlayerStats.double_jump
@@ -46,7 +47,8 @@ func water_shoot():
 	
 	if Input.is_action_just_pressed("Water_shoot"):
 		water_timer.start()
-		
+	if Input.is_action_just_released("Water_shoot"):
+		water_timer.stop()
 		
 
 	
@@ -70,3 +72,5 @@ func movement():
 
 func _on_timer_timeout() -> void:
 	print("shot player")
+	#water_timer.reset()
+	velocity.y += shoot_height

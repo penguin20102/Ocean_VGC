@@ -26,8 +26,7 @@ vframes = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1855503649]
 shape = SubResource("RectangleShape2D_waqr2")
 
-[node name="Timer" type="Timer" parent="." unique_id=443558097]
-wait_time = 2.0
+[node name="water_shoot" type="Timer" parent="." unique_id=443558097]
 one_shot = true
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="water_shoot" to="." method="_on_timer_timeout"]
