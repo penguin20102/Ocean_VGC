@@ -8,6 +8,7 @@ extends CharacterBody2D
 @export var shoot_height = -500
 
 @onready var water_timer: Timer = $water_shoot
+@onready var water_shoot_progress_bar: ProgressBar = $"CanvasLayer/Player ui/water_shoot"
 
 
 var double_jump = PlayerStats.double_jump
@@ -26,6 +27,8 @@ func _physics_process(delta):
 	#water_jump()
 	water_shoot()
 	
+	# setting up the progress bar with the timers values
+	water_shoot_progress_bar.max_value = water_timer.wait_time
 	
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -45,11 +48,16 @@ func water_jump():
 
 func water_shoot():
 	
+	# updating the progress bar so that you cna visually see the chagne in charge up time
+	water_shoot_progress_bar.value = water_timer.wait_time - water_timer.time_left
+	
+	# checking if the input is held
 	if Input.is_action_just_pressed("Water_shoot"):
 		water_timer.start()
+		water_shoot_progress_bar.visible = true
 	if Input.is_action_just_released("Water_shoot"):
 		water_timer.stop()
-		
+		water_shoot_progress_bar.visible = false
 
 	
 # Movement script
@@ -72,5 +80,5 @@ func movement():
 
 func _on_timer_timeout() -> void:
 	print("shot player")
-	#water_timer.reset()
 	velocity.y += shoot_height
+	water_shoot_progress_bar.visible = false
