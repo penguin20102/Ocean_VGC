@@ -4,10 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://dpv5snkoat3kf" path="res://Player/Player.png" id="2_efl3s"]
 [ext_resource type="PackedScene" uid="uid://dywpdk2knvp62" path="res://GUI Elements/Pause Menu/pause_menu.tscn" id="3_efl3s"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_waqr2"]
-size = Vector2(20, 32)
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_efl3s"]
+points = PackedVector2Array(-14, 16, 14, 16, 10, 2, 5, -15, -3, -16, -10, 4)
 
 [node name="player_" type="CharacterBody2D" unique_id=1479122654 groups=["Player"]]
+scale = Vector2(1.75, 1.75)
 collision_mask = 15
 script = ExtResource("1_4jr1b")
 
@@ -17,17 +18,12 @@ texture = ExtResource("2_efl3s")
 hframes = 4
 vframes = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1855503649]
-shape = SubResource("RectangleShape2D_waqr2")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=818677673]
-zoom = Vector2(2, 2)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=108863571]
 
 [node name="Pause Menu" parent="CanvasLayer" unique_id=539179954 instance=ExtResource("3_efl3s")]
-metadata/_edit_use_anchors_ = true
 
+<<<<<<< HEAD
+<<<<<<< Updated upstream
 [node name="Player ui" type="Control" parent="CanvasLayer" unique_id=678944600]
 top_level = true
 layout_mode = 3
@@ -38,22 +34,32 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
+=======
+[node name="Camera2D" type="Camera2D" parent="." unique_id=818677673]
+>>>>>>> parent of e411293 (Made progress bar)
 
-[node name="water_shoot" type="ProgressBar" parent="CanvasLayer/Player ui" unique_id=144704756]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.354
-anchor_top = 1.0
-anchor_right = 0.646
-anchor_bottom = 1.0
-offset_left = -0.6799927
-offset_top = -27.0
-offset_right = 0.67993164
-grow_horizontal = 2
-grow_vertical = 0
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1855503649]
+shape = SubResource("RectangleShape2D_waqr2")
 
 [node name="water_shoot" type="Timer" parent="." unique_id=443558097]
 one_shot = true
 
 [connection signal="timeout" from="water_shoot" to="." method="_on_timer_timeout"]
+=======
+[node name="Camera2D" type="Camera2D" parent="." unique_id=818677673]
+zoom = Vector2(2, 2)
+position_smoothing_speed = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1855503649]
+<<<<<<< HEAD
+shape = SubResource("ConvexPolygonShape2D_efl3s")
+=======
+shape = SubResource("RectangleShape2D_waqr2")
+
+[node name="Timer" type="Timer" parent="." unique_id=443558097]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+>>>>>>> 72e2ca233747d68fcbd607726b4d250553ae34db
+>>>>>>> Stashed changes
