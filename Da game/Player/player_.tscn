@@ -20,10 +20,8 @@ vframes = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=108863571]
 
-[node name="Pause Menu" parent="CanvasLayer" unique_id=539179954 instance=ExtResource("3_efl3s")]
+[node name="Pause Menu" parent="CanvasLayer" unique_id=576074408 instance=ExtResource("3_efl3s")]
 
-<<<<<<< HEAD
-<<<<<<< Updated upstream
 [node name="Player ui" type="Control" parent="CanvasLayer" unique_id=678944600]
 top_level = true
 layout_mode = 3
@@ -34,32 +32,23 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
-=======
-[node name="Camera2D" type="Camera2D" parent="." unique_id=818677673]
->>>>>>> parent of e411293 (Made progress bar)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1855503649]
-shape = SubResource("RectangleShape2D_waqr2")
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Player ui" unique_id=134178175]
+visible = false
+layout_mode = 0
+offset_left = 316.0
+offset_top = 551.0
+offset_right = 939.0
+offset_bottom = 590.0
 
-[node name="water_shoot" type="Timer" parent="." unique_id=443558097]
-one_shot = true
-
-[connection signal="timeout" from="water_shoot" to="." method="_on_timer_timeout"]
-=======
 [node name="Camera2D" type="Camera2D" parent="." unique_id=818677673]
 zoom = Vector2(2, 2)
 position_smoothing_speed = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1855503649]
-<<<<<<< HEAD
 shape = SubResource("ConvexPolygonShape2D_efl3s")
-=======
-shape = SubResource("RectangleShape2D_waqr2")
 
-[node name="Timer" type="Timer" parent="." unique_id=443558097]
-wait_time = 2.0
+[node name="water_shoot" type="Timer" parent="." unique_id=443558097]
 one_shot = true
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
->>>>>>> 72e2ca233747d68fcbd607726b4d250553ae34db
->>>>>>> Stashed changes
+[connection signal="timeout" from="water_shoot" to="." method="_on_water_shoot_timeout"]
