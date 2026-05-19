@@ -11,7 +11,7 @@ extends CharacterBody2D
 @onready var water_shoot_progress_bar: ProgressBar = $"CanvasLayer/Player ui/water_shoot"
 
 
-var double_jump = PlayerStats.double_jump
+#var double_jump = PlayerStats.double_jump
 
 var max_double = 0
 
