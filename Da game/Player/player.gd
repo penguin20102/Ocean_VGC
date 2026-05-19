@@ -1,14 +1,16 @@
 extends CharacterBody2D
 
 # Variables
-@export var jump_height = -250
+@export var jump_height = -430
 @export var water_jump_height = 1000
-@export var movement_speed = 100
+@export var movement_speed = 200
 @export var terminal_velocity = 1000
 @export var shoot_height = -500
 
 @onready var water_timer: Timer = $water_shoot
-@onready var water_shoot_progress_bar: ProgressBar = $"CanvasLayer/Player ui/water_shoot"
+
+
+@onready var water_timer: Timer = $Timer
 
 
 #var double_jump = PlayerStats.double_jump
@@ -27,8 +29,14 @@ func _physics_process(delta):
 	#water_jump()
 	water_shoot()
 	
+<<<<<<< HEAD
+<<<<<<< Updated upstream
 	# setting up the progress bar with the timers values
 	water_shoot_progress_bar.max_value = water_timer.wait_time
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> parent of e411293 (Made progress bar)
 	
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -48,16 +56,29 @@ func water_jump():
 
 func water_shoot():
 	
+<<<<<<< HEAD
+<<<<<<< Updated upstream
 	# updating the progress bar so that you cna visually see the chagne in charge up time
 	water_shoot_progress_bar.value = water_timer.wait_time - water_timer.time_left
 	
 	# checking if the input is held
+=======
+>>>>>>> parent of e411293 (Made progress bar)
 	if Input.is_action_just_pressed("Water_shoot"):
 		water_timer.start()
-		water_shoot_progress_bar.visible = true
 	if Input.is_action_just_released("Water_shoot"):
 		water_timer.stop()
+<<<<<<< HEAD
 		water_shoot_progress_bar.visible = false
+=======
+	if Input.is_action_just_pressed("Water_shoot"):
+		water_timer.start()
+		
+		
+>>>>>>> Stashed changes
+=======
+		
+>>>>>>> parent of e411293 (Made progress bar)
 
 	
 # Movement script
@@ -80,5 +101,13 @@ func movement():
 
 func _on_timer_timeout() -> void:
 	print("shot player")
+<<<<<<< HEAD
+<<<<<<< Updated upstream
 	velocity.y += shoot_height
 	water_shoot_progress_bar.visible = false
+=======
+>>>>>>> Stashed changes
+=======
+	#water_timer.reset()
+	velocity.y += shoot_height
+>>>>>>> parent of e411293 (Made progress bar)
