@@ -7,7 +7,7 @@ extends Node
 var water_shoot = false
 var bubble_up = false
 var max_water_level = 500
-var double_jump = false
+var wall_jump = false
 
 var current_scene = null
 
@@ -24,4 +24,4 @@ func ability():
 	if "Level 3" in current_scene:
 		water_shoot = true
 	if "Level 4" in current_scene:
-		double_jump = true
+		wall_jump = true

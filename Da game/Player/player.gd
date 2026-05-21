@@ -10,7 +10,7 @@ extends CharacterBody2D
 # Onready Varibles
 @onready var water_timer: Timer = $water_shoot
 @onready var water_shoot_progress_bar: ProgressBar = $"CanvasLayer/Player ui/ProgressBar"
-@onready var character_unlocks: Area2D = $Character_Unlocks
+
 
 # checks for abilities
 var water_shoot_check = false
