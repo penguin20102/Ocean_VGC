@@ -1,20 +1,22 @@
 extends CharacterBody2D
 
-# Variables
+# Export Variables
 @export var jump_height = -430
 @export var water_jump_height = 1000
 @export var movement_speed = 200
 @export var terminal_velocity = 1000
 @export var shoot_height = -860
 
+# Onready Varibles
 @onready var water_timer: Timer = $water_shoot
 @onready var water_shoot_progress_bar: ProgressBar = $"CanvasLayer/Player ui/ProgressBar"
+@onready var character_unlocks: Area2D = $Character_Unlocks
+
+# checks for abilities
+var water_shoot_check = false
+var wall_jump_check = false
 
 
-
-#var double_jump = PlayerStats.double_jump
-
-var max_double = 0
 
 var water_level = 1
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -22,12 +24,12 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var health = PlayerStats.health
 
 
-
 func _physics_process(delta):
 	movement()
-	#water_jump()
-	water_shoot()
-	
+	ability_check()
+	if water_shoot_check == true:
+		water_shoot()
+
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
@@ -44,6 +46,7 @@ func water_jump():
 		velocity.y += water_jump_height + velocity.y
 		water_level -= 25
 
+# your big jump ability
 func water_shoot():
 	
 # updating the progress bar so that you cna visually see the chagne in charge up time
@@ -57,6 +60,14 @@ func water_shoot():
 		water_timer.stop()
 
 		water_shoot_progress_bar.visible = false
+
+# Checking if you got an ability
+
+func ability_check():
+	water_shoot_check = PlayerStats.water_shoot
+	wall_jump_check = PlayerStats.wall_jump
+
+
 
 # Movement script
 func movement():
