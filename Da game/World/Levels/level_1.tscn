@@ -124,10 +124,7 @@ tile_map_data = PackedByteArray("AAAxABwAAAABAAAAAAAwABwAAAABAAAAAAAvABwAAAABAAA
 tile_set = SubResource("TileSet_lh22i")
 
 [node name="Player" parent="." unique_id=1729872744 instance=ExtResource("2_oup62")]
-position = Vector2(1835.425, 1041.42)
-
-[node name="ProgressBar" parent="Player/CanvasLayer/Player ui" parent_id_path=PackedInt32Array(1729872744, 678944600) index="0" unique_id=134178175]
-visible = false
+position = Vector2(1476.9999, 306.00006)
 
 [node name="Door" parent="." unique_id=417997255 instance=ExtResource("3_lh22i")]
 position = Vector2(2085, 609)

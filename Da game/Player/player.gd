@@ -3,14 +3,17 @@ extends CharacterBody2D
 # Export Variables
 @export var jump_height = -430
 @export var water_jump_height = 1000
-@export var movement_speed = 200
+var movement_speed = 200
 @export var terminal_velocity = 1000
 @export var shoot_height = -860
 
 # Onready Varibles
 @onready var water_timer: Timer = $water_shoot
 @onready var water_shoot_progress_bar: ProgressBar = $"CanvasLayer/Player ui/ProgressBar"
+@onready var walk_sounds: AudioStreamPlayer = $Sounds/Walk_Sounds
 
+var step_timer = 0.0
+var step_delay = 6.2 # Time in seconds between steps
 
 # checks for abilities
 var water_shoot_check = false
@@ -25,7 +28,7 @@ var health = PlayerStats.health
 
 
 func _physics_process(delta):
-	movement()
+	movement(delta)
 	ability_check()
 	if water_shoot_check == true:
 		water_shoot()
@@ -70,11 +73,25 @@ func ability_check():
 
 
 # Movement script
-func movement():
+func movement(delta):
 	# Moveing left and right
 	var input_direction = Input.get_action_strength("Right") - Input.get_action_strength("Left")
 	velocity.x = input_direction * movement_speed
 	
+	
+# We check velocity.x (horizontal speed) instead of total length 
+	# so falling down a pit doesn't trigger footsteps.
+	if velocity.x != 0.0 and is_on_floor():
+		step_timer -= delta
+		if step_timer <= 0:
+			walk_sounds.play()
+			step_timer = step_delay
+	else:
+		# Reset timer when mid-air or standing still
+		step_timer = 0.0
+		walk_sounds.stop()
+		
+		
 	# Jumping normaly
 	if is_on_floor() and Input.is_action_just_pressed("Jump"):
 		velocity.y += jump_height
@@ -86,6 +103,8 @@ func movement():
 	
 	
 
+func wall_climb():
+	pass
 
 func _on_water_shoot_timeout() -> void:
 	print("shot player")

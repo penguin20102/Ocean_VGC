@@ -9,6 +9,8 @@ var bubble_up = false
 var max_water_level = 500
 var wall_jump = false
 
+
+
 var current_scene = null
 
 func get_scene():

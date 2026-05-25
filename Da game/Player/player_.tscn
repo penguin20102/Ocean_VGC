@@ -3,9 +3,10 @@
 [ext_resource type="Script" uid="uid://cshyfqvs48kvo" path="res://Player/player.gd" id="1_4jr1b"]
 [ext_resource type="Texture2D" uid="uid://dpv5snkoat3kf" path="res://Player/Player.png" id="2_efl3s"]
 [ext_resource type="PackedScene" uid="uid://dywpdk2knvp62" path="res://GUI Elements/Pause Menu/pause_menu.tscn" id="3_efl3s"]
+[ext_resource type="AudioStream" uid="uid://cv04j3vabjtem" path="res://Music/freesound_community-sand-walk-106366 (1).mp3" id="4_waqr2"]
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_efl3s"]
-points = PackedVector2Array(-14, 16, 14, 16, 10, 2, 5, -15, -3, -16, -10, 4)
+points = PackedVector2Array(-14, 16, 14, 16, 10, 2, 5.1428566, -15.999999, -3, -16, -10, 4)
 
 [node name="player_" type="CharacterBody2D" unique_id=1479122654 groups=["Player"]]
 scale = Vector2(1.75, 1.75)
@@ -50,5 +51,10 @@ shape = SubResource("ConvexPolygonShape2D_efl3s")
 
 [node name="water_shoot" type="Timer" parent="." unique_id=443558097]
 one_shot = true
+
+[node name="Sounds" type="Node2D" parent="." unique_id=142225330]
+
+[node name="Walk_Sounds" type="AudioStreamPlayer" parent="Sounds" unique_id=2079668206]
+stream = ExtResource("4_waqr2")
 
 [connection signal="timeout" from="water_shoot" to="." method="_on_water_shoot_timeout"]
