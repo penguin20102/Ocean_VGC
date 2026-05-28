@@ -8,6 +8,9 @@
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_efl3s"]
 points = PackedVector2Array(-14, 16, 14, 16, 10, 2, 5.1428566, -15.999999, -3, -16, -10, 4)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_waqr2"]
+size = Vector2(30.857155, 32)
+
 [node name="player_" type="CharacterBody2D" unique_id=1479122654 groups=["Player"]]
 scale = Vector2(1.75, 1.75)
 collision_mask = 15
@@ -57,4 +60,14 @@ one_shot = true
 [node name="Walk_Sounds" type="AudioStreamPlayer" parent="Sounds" unique_id=2079668206]
 stream = ExtResource("4_waqr2")
 
+[node name="Wall Climb" type="Area2D" parent="." unique_id=913096459]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall Climb" unique_id=2008945025]
+position = Vector2(2.7247833e-07, -1.3623916e-06)
+scale = Vector2(0.9999995, 0.9999995)
+shape = SubResource("RectangleShape2D_waqr2")
+
 [connection signal="timeout" from="water_shoot" to="." method="_on_water_shoot_timeout"]
+[connection signal="body_entered" from="Wall Climb" to="." method="_on_wall_climb_body_entered"]
