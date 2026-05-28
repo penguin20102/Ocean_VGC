@@ -1,5 +1,4 @@
 extends CharacterBody2D
-
 # Export Variables
 @export var jump_height = -430
 @export var water_jump_height = 1000
@@ -11,6 +10,7 @@ var movement_speed = 200
 @onready var water_timer: Timer = $water_shoot
 @onready var water_shoot_progress_bar: ProgressBar = $"CanvasLayer/Player ui/ProgressBar"
 @onready var walk_sounds: AudioStreamPlayer = $Sounds/Walk_Sounds
+@onready var player: CharacterBody2D = $"."
 
 var step_timer = 0.0
 var step_delay = 6.2 # Time in seconds between steps
@@ -18,7 +18,7 @@ var step_delay = 6.2 # Time in seconds between steps
 # checks for abilities
 var water_shoot_check = false
 var wall_jump_check = false
-
+var wall_check = false
 
 
 var water_level = 1
@@ -33,9 +33,8 @@ func _physics_process(delta):
 	if water_shoot_check == true:
 		water_shoot()
 
-	if not is_on_floor():
+	if not is_on_floor() and wall_check == false:
 		velocity.y += gravity * delta
-
 		velocity.y = min(velocity.y, terminal_velocity)
 	move_and_slide()
 
@@ -105,9 +104,14 @@ func movement(delta):
 
 func wall_climb():
 	pass
+	
 
 func _on_water_shoot_timeout() -> void:
 	print("shot player")
 
 	velocity.y += shoot_height
 	water_shoot_progress_bar.visible = false
+
+
+func _on_wall_climb_body_entered():
+	print("Touching")

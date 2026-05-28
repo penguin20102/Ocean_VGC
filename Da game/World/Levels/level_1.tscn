@@ -1,6 +1,5 @@
 [gd_scene format=4 uid="uid://bpv27xyxp7cpy"]
 
-[ext_resource type="Texture2D" uid="uid://di60ybbx6kili" path="res://World/Levels/Dark sand.png" id="1_oup62"]
 [ext_resource type="Texture2D" uid="uid://qvfbx2bbvxhr" path="res://World/World art/MANCAVEEEEl.png" id="1_riuk4"]
 [ext_resource type="PackedScene" uid="uid://dyy3jwksc83yw" path="res://Player/player_.tscn" id="2_oup62"]
 [ext_resource type="PackedScene" uid="uid://dvxd7g6mf70si" path="res://World/door.tscn" id="3_lh22i"]
@@ -9,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bd4wc53gm4fui" path="res://World/World art/Environment/coralD3.png" id="7_loy0v"]
 [ext_resource type="Texture2D" uid="uid://d3ppokkp0jh2e" path="res://World/World art/Environment/coralD4.png" id="8_osbjl"]
 [ext_resource type="Texture2D" uid="uid://82hm7lmnlw5i" path="res://World/World art/Environment/coralD6.png" id="9_1txw3"]
+[ext_resource type="TileSet" uid="uid://xxfkjhir85r8" path="res://World/World art/Environment/tile_set.tres" id="9_5yo7b"]
 [ext_resource type="Texture2D" uid="uid://i885g3f3c43x" path="res://World/World art/Environment/coralD7.png" id="10_xhtyv"]
 [ext_resource type="Texture2D" uid="uid://ct76jq6ge8ygf" path="res://World/World art/Environment/coralminiD2.png" id="11_klmnm"]
 
