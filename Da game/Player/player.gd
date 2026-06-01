@@ -11,6 +11,7 @@ var movement_speed = 200
 @onready var water_shoot_progress_bar: ProgressBar = $"CanvasLayer/Player ui/ProgressBar"
 @onready var walk_sounds: AudioStreamPlayer = $Sounds/Walk_Sounds
 @onready var player: CharacterBody2D = $"."
+@onready var stop_joey_from_jump: Timer = $StopJoeyFromJump
 
 var step_timer = 0.0
 var step_delay = 6.2 # Time in seconds between steps
@@ -58,8 +59,10 @@ func water_shoot():
 	if Input.is_action_just_pressed("Water_shoot"):
 		water_timer.start()
 		water_shoot_progress_bar.visible = true
+		stop_joey_from_jump.start()
 	if Input.is_action_just_released("Water_shoot"):
 		water_timer.stop()
+		stop_joey_from_jump.stop()
 
 		water_shoot_progress_bar.visible = false
 
@@ -92,7 +95,7 @@ func movement(delta):
 		
 		
 	# Jumping normaly
-	if is_on_floor() and Input.is_action_just_pressed("Jump"):
+	if is_on_floor() and Input.is_action_just_pressed("Jump") and stop_joey_from_jump.is_stopped():
 		velocity.y += jump_height
 	
 	# Making jumping ajustable
@@ -107,8 +110,8 @@ func wall_climb():
 	
 
 func _on_water_shoot_timeout() -> void:
+	
 	print("shot player")
-
 	velocity.y += shoot_height
 	water_shoot_progress_bar.visible = false
 

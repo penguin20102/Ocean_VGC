@@ -70,5 +70,8 @@ position = Vector2(2.7247833e-07, -1.3623916e-06)
 scale = Vector2(0.9999995, 0.9999995)
 shape = SubResource("RectangleShape2D_waqr2")
 
+[node name="StopJoeyFromJump" type="Timer" parent="." unique_id=265075848]
+wait_time = 1.2
+
 [connection signal="timeout" from="water_shoot" to="." method="_on_water_shoot_timeout"]
 [connection signal="body_entered" from="Wall Climb" to="." method="_on_wall_climb_body_entered"]
