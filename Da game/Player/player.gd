@@ -9,9 +9,13 @@ var movement_speed = 200
 # Onready Varibles
 @onready var water_timer: Timer = $water_shoot
 @onready var water_shoot_progress_bar: ProgressBar = $"CanvasLayer/Player ui/ProgressBar"
-@onready var walk_sounds: AudioStreamPlayer = $Sounds/Walk_Sounds
 @onready var player: CharacterBody2D = $"."
 @onready var stop_joey_from_jump: Timer = $StopJoeyFromJump
+
+# Sound varibales
+@onready var jump_sounds: AudioStreamPlayer = $Sounds/Jump_Sounds
+@onready var walk_sounds: AudioStreamPlayer = $Sounds/Walk_Sounds
+
 
 var step_timer = 0.0
 var step_delay = 6.2 # Time in seconds between steps
@@ -97,6 +101,7 @@ func movement(delta):
 	# Jumping normaly
 	if is_on_floor() and Input.is_action_just_pressed("Jump") and stop_joey_from_jump.is_stopped():
 		velocity.y += jump_height
+		jump_sounds.play()
 	
 	# Making jumping ajustable
 	if Input.is_action_just_released("Jump"):
