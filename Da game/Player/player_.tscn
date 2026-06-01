@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dpv5snkoat3kf" path="res://Player/Player.png" id="2_efl3s"]
 [ext_resource type="PackedScene" uid="uid://dywpdk2knvp62" path="res://GUI Elements/Pause Menu/pause_menu.tscn" id="3_efl3s"]
 [ext_resource type="AudioStream" uid="uid://cv04j3vabjtem" path="res://Music/freesound_community-sand-walk-106366 (1).mp3" id="4_waqr2"]
+[ext_resource type="AudioStream" uid="uid://debcl47ljk0xf" path="res://Music/Sound/freesound_community-sand_step-87182.mp3" id="5_yw7u2"]
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_efl3s"]
 points = PackedVector2Array(-14, 16, 14, 16, 10, 2, 5.1428566, -15.999999, -3, -16, -10, 4)
@@ -60,6 +61,9 @@ one_shot = true
 
 [node name="Walk_Sounds" type="AudioStreamPlayer" parent="Sounds" unique_id=2079668206]
 stream = ExtResource("4_waqr2")
+
+[node name="Jump_Sounds" type="AudioStreamPlayer" parent="Sounds" unique_id=1359272696]
+stream = ExtResource("5_yw7u2")
 
 [node name="Wall Climb" type="Area2D" parent="." unique_id=913096459]
 collision_layer = 0
