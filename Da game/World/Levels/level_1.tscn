@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://bpv27xyxp7cpy"]
 
+[ext_resource type="Texture2D" uid="uid://di60ybbx6kili" path="res://World/Levels/Dark sand.png" id="1_oup62"]
 [ext_resource type="Texture2D" uid="uid://qvfbx2bbvxhr" path="res://World/World art/MANCAVEEEEl.png" id="1_riuk4"]
 [ext_resource type="PackedScene" uid="uid://dyy3jwksc83yw" path="res://Player/player_.tscn" id="2_oup62"]
 [ext_resource type="PackedScene" uid="uid://dvxd7g6mf70si" path="res://World/door.tscn" id="3_lh22i"]
