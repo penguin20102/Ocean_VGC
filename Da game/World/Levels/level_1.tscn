@@ -9,9 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://bd4wc53gm4fui" path="res://World/World art/Environment/coralD3.png" id="7_loy0v"]
 [ext_resource type="Texture2D" uid="uid://d3ppokkp0jh2e" path="res://World/World art/Environment/coralD4.png" id="8_osbjl"]
 [ext_resource type="Texture2D" uid="uid://82hm7lmnlw5i" path="res://World/World art/Environment/coralD6.png" id="9_1txw3"]
-[ext_resource type="TileSet" uid="uid://xxfkjhir85r8" path="res://World/World art/Environment/tile_set.tres" id="9_5yo7b"]
 [ext_resource type="Texture2D" uid="uid://i885g3f3c43x" path="res://World/World art/Environment/coralD7.png" id="10_xhtyv"]
 [ext_resource type="Texture2D" uid="uid://ct76jq6ge8ygf" path="res://World/World art/Environment/coralminiD2.png" id="11_klmnm"]
+[ext_resource type="AudioStream" uid="uid://dbfyctfpts4hg" path="res://Music/Background/The Coral Zone.mp3" id="12_k5cst"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5yo7b"]
 texture = ExtResource("5_5yo7b")
@@ -126,7 +126,6 @@ tile_set = SubResource("TileSet_lh22i")
 
 [node name="Player" parent="." unique_id=1729872744 instance=ExtResource("2_oup62")]
 position = Vector2(1835.425, 1041.42)
-safe_margin = 1.0
 
 [node name="Camera2D" parent="Player" index="2" unique_id=818677673]
 zoom = Vector2(1, 1)
@@ -135,5 +134,9 @@ zoom = Vector2(1, 1)
 position = Vector2(2085, 609)
 scale = Vector2(2, 2)
 target_scene_path = "uid://c4p4fkgr6medq"
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1174921668]
+stream = ExtResource("12_k5cst")
+autoplay = true
 
 [editable path="Player"]
