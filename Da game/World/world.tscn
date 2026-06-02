@@ -1,8 +1,9 @@
-[gd_scene format=3 uid="uid://c7qjhao2ik66y"]
+[gd_scene format=4 uid="uid://c7qjhao2ik66y"]
 
 [ext_resource type="PackedScene" uid="uid://dyy3jwksc83yw" path="res://Player/player_.tscn" id="1_62w18"]
 [ext_resource type="Texture2D" uid="uid://d2cia4vd7khgf" path="res://download.jpg" id="2_8a836"]
 [ext_resource type="PackedScene" uid="uid://dvxd7g6mf70si" path="res://World/door.tscn" id="4_3f78f"]
+[ext_resource type="TileSet" uid="uid://xxfkjhir85r8" path="res://World/World art/Environment/tile_set.tres" id="4_k8do8"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_j8job"]
 
@@ -30,9 +31,9 @@ shape = SubResource("WorldBoundaryShape2D_j8job")
 position = Vector2(156, 19)
 target_scene_path = "uid://bpv27xyxp7cpy"
 
-[node name="Wall" type="StaticBody2D" parent="." unique_id=1539510550]
-position = Vector2(-246, -134)
-collision_layer = 8
+[node name="Wall" type="StaticBody2D" parent="." unique_id=1539510550 groups=["Walls"]]
+position = Vector2(-487, -165)
+collision_layer = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall" unique_id=1243403752]
 position = Vector2(13, 91)
@@ -44,3 +45,9 @@ offset_top = -13.0
 offset_right = 35.0
 offset_bottom = 194.0
 color = Color(0, 0, 0, 1)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=637514706]
+tile_map_data = PackedByteArray("AAD9//7/AAABAAIAAAD8//z/AAAAAAAAAAD8//7/AAAAAAIAAAD9//z/AAABAAAAAAD+//z/AAACAAAAAAD+//7/AAACAAIAAAD+//3/AAACAAEAAAD8//3/AAAAAAEAAAD9//3/AAABAAEAAAD3//n/AAACAAAAAAD3//r/AAACAAEAAAD3//v/AAACAAEAAAD3//z/AAACAAEAAAD3//3/AAACAAEAAAD3//7/AAACAAEAAAD3////AAACAAEAAAD3/wAAAAACAAIAAAA=")
+tile_set = ExtResource("4_k8do8")
+
+[editable path="Player"]

@@ -1,3 +1,6 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+Da game/Player/player_.tscn
+Da game/Player/player.gd
+Da game/GUI Elements/Pause Menu/pause_menu.tscn

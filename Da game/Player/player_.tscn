@@ -3,12 +3,19 @@
 [ext_resource type="Script" uid="uid://cshyfqvs48kvo" path="res://Player/player.gd" id="1_4jr1b"]
 [ext_resource type="Texture2D" uid="uid://dpv5snkoat3kf" path="res://Player/Player.png" id="2_efl3s"]
 [ext_resource type="PackedScene" uid="uid://dywpdk2knvp62" path="res://GUI Elements/Pause Menu/pause_menu.tscn" id="3_efl3s"]
+[ext_resource type="AudioStream" uid="uid://cv04j3vabjtem" path="res://Music/freesound_community-sand-walk-106366 (1).mp3" id="4_waqr2"]
+[ext_resource type="AudioStream" uid="uid://debcl47ljk0xf" path="res://Music/Sound/freesound_community-sand_step-87182.mp3" id="5_yw7u2"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_efl3s"]
+points = PackedVector2Array(-14, 16, 14, 16, 10, 2, 5.1428566, -15.999999, -3, -16, -10, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_waqr2"]
-size = Vector2(20, 32)
+size = Vector2(30.857155, 32)
 
 [node name="player_" type="CharacterBody2D" unique_id=1479122654 groups=["Player"]]
+scale = Vector2(1.75, 1.75)
 collision_mask = 15
+safe_margin = 1.0
 script = ExtResource("1_4jr1b")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2137323596]
@@ -17,16 +24,9 @@ texture = ExtResource("2_efl3s")
 hframes = 4
 vframes = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1855503649]
-shape = SubResource("RectangleShape2D_waqr2")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=818677673]
-zoom = Vector2(2, 2)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=108863571]
 
-[node name="Pause Menu" parent="CanvasLayer" unique_id=539179954 instance=ExtResource("3_efl3s")]
-metadata/_edit_use_anchors_ = true
+[node name="Pause Menu" parent="CanvasLayer" unique_id=576074408 instance=ExtResource("3_efl3s")]
 
 [node name="Player ui" type="Control" parent="CanvasLayer" unique_id=678944600]
 top_level = true
@@ -39,21 +39,43 @@ grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="water_shoot" type="ProgressBar" parent="CanvasLayer/Player ui" unique_id=144704756]
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Player ui" unique_id=134178175]
 visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.354
-anchor_top = 1.0
-anchor_right = 0.646
-anchor_bottom = 1.0
-offset_left = -0.6799927
-offset_top = -27.0
-offset_right = 0.67993164
-grow_horizontal = 2
-grow_vertical = 0
+layout_mode = 0
+offset_left = 316.0
+offset_top = 551.0
+offset_right = 939.0
+offset_bottom = 590.0
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=818677673]
+zoom = Vector2(2, 2)
+position_smoothing_speed = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1855503649]
+shape = SubResource("ConvexPolygonShape2D_efl3s")
 
 [node name="water_shoot" type="Timer" parent="." unique_id=443558097]
 one_shot = true
 
-[connection signal="timeout" from="water_shoot" to="." method="_on_timer_timeout"]
+[node name="Sounds" type="Node2D" parent="." unique_id=142225330]
+
+[node name="Walk_Sounds" type="AudioStreamPlayer" parent="Sounds" unique_id=2079668206]
+stream = ExtResource("4_waqr2")
+
+[node name="Jump_Sounds" type="AudioStreamPlayer" parent="Sounds" unique_id=1359272696]
+stream = ExtResource("5_yw7u2")
+
+[node name="Wall Climb" type="Area2D" parent="." unique_id=913096459]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall Climb" unique_id=2008945025]
+position = Vector2(2.7247833e-07, -1.3623916e-06)
+scale = Vector2(0.9999995, 0.9999995)
+shape = SubResource("RectangleShape2D_waqr2")
+
+[node name="StopJoeyFromJump" type="Timer" parent="." unique_id=265075848]
+wait_time = 1.2
+
+[connection signal="timeout" from="water_shoot" to="." method="_on_water_shoot_timeout"]
+[connection signal="body_entered" from="Wall Climb" to="." method="_on_wall_climb_body_entered"]
