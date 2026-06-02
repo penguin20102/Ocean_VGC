@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://i885g3f3c43x" path="res://World/World art/Environment/coralD7.png" id="9_rqeq4"]
 [ext_resource type="Texture2D" uid="uid://ct76jq6ge8ygf" path="res://World/World art/Environment/coralminiD2.png" id="10_iutsn"]
 [ext_resource type="PackedScene" uid="uid://dvxd7g6mf70si" path="res://World/door.tscn" id="11_n4e12"]
+[ext_resource type="AudioStream" uid="uid://dbfyctfpts4hg" path="res://Music/Background/The Coral Zone.mp3" id="12_uc3uc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n4e12"]
 texture = ExtResource("4_5q066")
@@ -191,6 +192,10 @@ scale = Vector2(2, 2)
 
 [node name="Camera2D" parent="Player" index="2" unique_id=818677673]
 zoom = Vector2(1, 1)
+
+[node name="Music" type="AudioStreamPlayer" parent="Player" unique_id=1536672752]
+stream = ExtResource("12_uc3uc")
+autoplay = true
 
 [node name="Door" parent="." unique_id=417997255 instance=ExtResource("11_n4e12")]
 position = Vector2(-670, 1051)
